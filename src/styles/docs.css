@@ -3,7 +3,7 @@
     font-size: 30px;
     font-weight: 700;
     cursor: pointer;
-    margin: 3rem 0 0.75rem 0;
+    padding: 3rem 0 0.75rem 0;
     font-family: "Roboto", sans-serif;
   }
   h1:hover {

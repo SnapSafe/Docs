@@ -10,42 +10,66 @@ const { sidebar } = Astro.props;
   const selectMenu = document.getElementById(
     "select-menu"
   ) as HTMLSelectElement;
-
+  const selectLabel = document.getElementById(
+    "select-label"
+  ) as HTMLLabelElement;
   const currentSlug = window.location.pathname.split("/docs/")[1]!;
 
   if (selectMenu.value !== currentSlug) {
     selectMenu.value = currentSlug;
   }
-
+  const selectedOption = selectMenu.options[selectMenu.selectedIndex]!;
+  selectLabel.innerText = selectedOption.innerText;
   selectMenu.addEventListener("change", (e) => {
     window.location.href = `/docs/${(e.target as HTMLSelectElement).value}`;
   });
 </script>
 
 <div
-  class="sticky top-0 z-40 flex justify-between items-center gap-x-6 bg-gray-200 border-b border-b-gray-300 px-4 py-4 shadow-sm sm:px-6 lg:hidden"
+  class="sticky top-0 z-40 flex justify-between items-center gap-x-6 bg-gray-200 border-b border-b-gray-300 px-4 py-3 shadow-sm sm:px-6 lg:hidden"
 >
   <a href="/" class="text-xl font-bold tracking-tight">
     <span class="text-primary pointer-events-none">Snap</span><span
       class="text-secondary pointer-events-none">Safe</span
     >
   </a>
-  <select id="select-menu" class="bg-transparent cursor-pointer">
-    <option value="" hidden></option>
-    {
-      Object.entries(sidebar).map((v) => {
-        return (
-          <optgroup label={v[0]}>
-            {v[1].map((item) => {
-              return (
-                <option class="cursor-pointer" value={item.slug}>
-                  {item.title}
-                </option>
-              );
-            })}
-          </optgroup>
-        );
-      })
-    }
-  </select>
+  <div class="relative max-w-52">
+    <label
+      for="select-menu"
+      class="flex justify-end items-center gap-1 cursor-pointer"
+    >
+      <span id="select-label"></span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        class="w-5 h-5"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </label>
+    <select
+      id="select-menu"
+      class="bg-transparent w-full max-w-52 inset-0 absolute appearance-none text-transparent cursor-pointer outline-none"
+    >
+      {
+        Object.entries(sidebar).map((v) => {
+          return (
+            <optgroup label={v[0]}>
+              {v[1].map((item) => {
+                return (
+                  <option value={item.slug} id={item.slug}>
+                    {item.title}
+                  </option>
+                );
+              })}
+            </optgroup>
+          );
+        })
+      }
+    </select>
+  </div>
 </div>
