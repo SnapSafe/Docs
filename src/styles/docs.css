@@ -1,0 +1,30 @@
+.content {
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 3rem 0 0.75rem 0;
+    font-family: "Roboto", sans-serif;
+  }
+  h1:hover {
+    text-decoration: underline;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.125rem;
+  }
+  ul {
+    @apply list-disc list-inside;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.125rem;
+  }
+  a {
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.125rem;
+  }
+}

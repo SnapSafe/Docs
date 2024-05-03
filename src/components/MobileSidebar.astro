@@ -1,0 +1,51 @@
+---
+type Props = {
+  sidebar: Record<string, { title: string; slug: string }[]>;
+};
+
+const { sidebar } = Astro.props;
+---
+
+<script>
+  const selectMenu = document.getElementById(
+    "select-menu"
+  ) as HTMLSelectElement;
+
+  const currentSlug = window.location.pathname.split("/docs/")[1]!;
+
+  if (selectMenu.value !== currentSlug) {
+    selectMenu.value = currentSlug;
+  }
+
+  selectMenu.addEventListener("change", (e) => {
+    window.location.href = `/docs/${(e.target as HTMLSelectElement).value}`;
+  });
+</script>
+
+<div
+  class="sticky top-0 z-40 flex justify-between items-center gap-x-6 bg-gray-200 border-b border-b-gray-300 px-4 py-4 shadow-sm sm:px-6 lg:hidden"
+>
+  <a href="/" class="text-xl font-bold tracking-tight">
+    <span class="text-primary pointer-events-none">Snap</span><span
+      class="text-secondary pointer-events-none">Safe</span
+    >
+  </a>
+  <select id="select-menu" class="bg-transparent cursor-pointer">
+    <option value="" hidden></option>
+    {
+      Object.entries(sidebar).map((v) => {
+        return (
+          <optgroup label={v[0]}>
+            {v[1].map((item) => {
+              return (
+                <option class="cursor-pointer" value={item.slug}>
+                  {item.title}
+                </option>
+              );
+            })}
+          </optgroup>
+        );
+      })
+    }
+  </select>
+</div>
