@@ -5,7 +5,9 @@ import DesktopSidebar from "../components/DesktopSidebar.astro";
 import MobileSidebar from "../components/MobileSidebar.astro";
 
 import "../styles/docs.css";
-import "@fontsource/roboto";
+import "remark-gh-alerts/styles/github-colors-light.css";
+import "remark-gh-alerts/styles/github-colors-dark-media.css";
+import "remark-gh-alerts/styles/github-base.css";
 
 type Props = {
   entry: {
@@ -40,6 +42,9 @@ const { entry } = Astro.props;
     if ((e.target as HTMLHeadingElement).nodeName === "H1") {
       window.location.hash = (e.target as HTMLHeadElement).id;
     }
+    if ((e.target as HTMLSpanElement).nodeName === "CODE") {
+      navigator.clipboard.writeText((e.target as HTMLSpanElement).innerText);
+    }
   });
 </script>
 
@@ -53,7 +58,7 @@ const { entry } = Astro.props;
   </head>
   <body class="h-full">
     <div
-      class="w-screen px-6 hidden lg:flex fixed top-0 h-16 bg-gray-200 border-b border-gray-300 items-center justify-between"
+      class="w-screen px-6 hidden lg:flex fixed top-0 h-14 bg-gray-200 border-b border-gray-300 items-center justify-between"
     >
       <div class="flex h-16 shrink-0 items-center">
         <a href="/" class="font-bold tracking-tight text-2xl">
@@ -86,11 +91,18 @@ const { entry } = Astro.props;
       <DesktopSidebar sidebar={sidebar} />
       <main class="lg:py-24 py-6 lg:pl-72">
         <div class="px-4 sm:px-6 lg:px-16 max-w-3xl">
-          <div class="rounded-md bg-yellow-50 border border-yellow-200 p-4">
+          <div
+            class="border-b border-gray-300 text-3xl pb-1 md:text-4xl mb-6 font-semibold"
+          >
+            {entry.data.title}
+          </div>
+          <div
+            class="rounded-md mb-4 bg-yellow-50 border border-yellow-200 p-4"
+          >
             <div class="flex">
               <div class="flex-shrink-0">
                 <svg
-                  class="h-5 w-5 text-yellow-400"
+                  class="h-6 w-6 text-yellow-400 mt-1"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   aria-hidden="true"
@@ -102,9 +114,9 @@ const { entry } = Astro.props;
                 </svg>
               </div>
               <div class="ml-3">
-                <h3 class="text-sm font-medium text-yellow-800">Heads Up</h3>
+                <h3 class="text-lg font-medium text-yellow-800">Heads Up</h3>
                 <div class="mt-2 text-yellow-700">
-                  <div class="text-sm">
+                  <div class="">
                     SnapSafe is still in very active development and not yet
                     ready for use. If you would like to contribute, please check
                     us out on <a

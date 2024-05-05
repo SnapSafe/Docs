@@ -1,30 +1,73 @@
 .content {
   h1 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 700;
     cursor: pointer;
-    padding: 3rem 0 0.75rem 0;
-    font-family: "Roboto", sans-serif;
+    margin: 2rem 0 0.75rem 0;
+    line-height: normal;
   }
   h1:hover {
     text-decoration: underline;
   }
-
   p {
-    margin: 0.5rem 0;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
   }
   ul {
     @apply list-disc list-inside;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.125rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
   a {
     text-decoration: underline;
     font-weight: 600;
     cursor: pointer;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.125rem;
+    font-size: 1rem;
+  }
+  .markdown-alert {
+    margin-bottom: 1rem;
+  }
+  pre {
+    background-color: lightgray !important;
+    border-radius: 2px;
+    padding: 0.25rem;
+  }
+  pre {
+    position: relative;
+    code {
+      padding: 0;
+    }
+    code::after {
+      position: absolute;
+      top: 0.25rem;
+      right: 0.3rem;
+      width: 16px;
+      height: 16px;
+    }
+    code:active::after {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  code {
+    background-color: lightgray;
+    padding: 0 0.25rem;
+    border-radius: 2px;
+    user-select: contain;
+    cursor: pointer;
+  }
+  code::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='currentColor' class='w-1 h-1'%3E%3Cpath fill-rule='evenodd' d='M10.986 3H12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1.014A2.25 2.25 0 0 1 7.25 1h1.5a2.25 2.25 0 0 1 2.236 2ZM9.5 4v-.75a.75.75 0 0 0-.75-.75h-1.5a.75.75 0 0 0-.75.75V4h3Z' clip-rule='evenodd' /%3E%3C/svg%3E%0A");
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+  }
+  code:active::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-1 h-1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z' /%3E%3C/svg%3E%0A");
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
   }
 }
