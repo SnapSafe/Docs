@@ -1,5 +1,5 @@
 ---
-title: "Creating a Repo"
+title: "Fork the Repo"
 section: "Setup"
 ---
 
