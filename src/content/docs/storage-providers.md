@@ -2,6 +2,7 @@
 title: "File Storage"
 section: "Setup"
 prevSlug: "repo-setup"
+nextSlug: null
 ---
 
 # S3 Compatibility

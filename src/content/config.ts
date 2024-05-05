@@ -5,8 +5,8 @@ const docsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     section: z.enum(["Getting Started", "Setup", "File Storage"]),
-    nextSlug: z.string().optional(),
-    prevSlug: z.string().optional(),
+    nextSlug: z.string().nullable(),
+    prevSlug: z.string().nullable(),
   }),
 });
 
