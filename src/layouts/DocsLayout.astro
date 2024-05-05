@@ -15,6 +15,8 @@ type Props = {
     data: {
       title: string;
       section: string;
+      nextSlug?: string;
+      prevSlug?: string;
     };
   };
 };
@@ -35,6 +37,14 @@ const sidebar = docs.reduce(
   {} as Record<string, { title: string; slug: string }[]>
 );
 const { entry } = Astro.props;
+
+const nextPage = entry.data.nextSlug
+  ? docs.find((doc) => doc.slug === entry.data.nextSlug)
+  : null;
+
+const prevPage = entry.data.prevSlug
+  ? docs.find((doc) => doc.slug === entry.data.prevSlug)
+  : null;
 ---
 
 <script>
@@ -117,13 +127,13 @@ const { entry } = Astro.props;
                 <h3 class="text-lg font-medium text-yellow-800">Heads Up</h3>
                 <div class="mt-2 text-yellow-700">
                   <div class="">
-                    SnapSafe is still in very active development and not yet
-                    ready for use. If you would like to contribute, please check
-                    us out on <a
+                    SnapSafe and this documentation are both in very active
+                    development and not yet ready for use. Consider contributing
+                    on <a
                       class="underline font-medium"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://github.com/SnapSafe">GitHub</a
+                      href="https://github.com/SnapSafe/SnapSafe">GitHub</a
                     >.
                   </div>
                 </div>
@@ -133,8 +143,82 @@ const { entry } = Astro.props;
           <div class="content">
             <slot />
           </div>
+          <div class="grid w-full grid-cols-2 mt-12">
+            {
+              prevPage ? (
+                <a
+                  href={`/docs/${prevPage.slug}`}
+                  class="p-6 border grow rounded-md border-gray-300 mr-1.5 group"
+                >
+                  <div class="flex text-sm text-gray-600 items-center gap-3 justify-start">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-4 h-4 rotate-180"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Previous{" "}
+                  </div>
+                  <div class="text-start font-medium group-hover:underline">
+                    {prevPage.data.title}
+                  </div>
+                </a>
+              ) : (
+                <div class="grow" />
+              )
+            }
+            {
+              nextPage ? (
+                <a
+                  href={`/docs/${nextPage.slug}`}
+                  class="p-6 border grow rounded-md border-gray-300 ml-1.5  group"
+                >
+                  <div class="flex text-sm text-gray-600 items-center gap-3 justify-end">
+                    Next{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-4 h-4"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div class="text-end font-medium group-hover:underline">
+                    {nextPage.data.title}
+                  </div>
+                </a>
+              ) : (
+                <div class="grow" />
+              )
+            }
+          </div>
         </div>
       </main>
+      <footer>
+        <div
+          class="w-[80%] text-center text-sm text-gray-600 border-t border-t-gray-300 py-12 m-auto"
+        >
+          Something seem off or want to make a suggestion?<br />
+          <a
+            href="https://github.com/SnapSafe/Docs/issues/new"
+            target="_blank"
+            class="underline font-medium"
+            rel="noopener noreferrer"
+            >Let us know!
+          </a>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

@@ -1,6 +1,7 @@
 ---
 title: "Introduction"
 section: "Getting Started"
+nextSlug: "prerequisites"
 ---
 
 # Welcome

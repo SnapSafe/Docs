@@ -1,6 +1,8 @@
 ---
 title: "Prerequisites"
 section: "Setup"
+nextSlug: "repo-setup"
+prevSlug: "introduction"
 ---
 
 SnapSafe requires the following:
