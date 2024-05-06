@@ -7,7 +7,7 @@ prevSlug: null
 
 # Welcome
 
-SnapSafe is a self-hostable photo sharing application designed from the ground up for privacy and security.
+SnapSafe is a self hosted photo sharing application designed from the ground up for privacy and security.
 
 # What problem does this solve?
 
