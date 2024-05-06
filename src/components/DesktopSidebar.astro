@@ -30,17 +30,18 @@ const { sidebar } = Astro.props;
               Object.entries(sidebar).map((v) => {
                 return (
                   <li>
-                    <div class="font-medium text-lg border-b border-b-gray-300">
-                      {v[0]}
-                    </div>
-                    <ul role="list" class="mt-1.5 space-y-1 list-none">
+                    <div class="font-medium text-lg">{v[0]}</div>
+                    <ul
+                      role="list"
+                      class="mt-1.5 space-y-1 list-none border-l border-l-gray-300"
+                    >
                       {v[1].map((item) => {
                         return (
                           <li>
                             <a
                               id={`desktop-${item.slug}`}
                               href={`/docs/${item.slug}`}
-                              class="flex leading-6 font-medium px-2 py-1 hover:bg-primary/10 rounded-lg"
+                              class="flex leading-6 font px-1.5 py-1 ml-1.5 text-sm font-medium hover:bg-primary/10 rounded-lg"
                             >
                               {item.title}
                             </a>
