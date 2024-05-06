@@ -3,6 +3,7 @@ title: "Fork the Repo"
 section: "Setup"
 nextSlug: "storage-providers"
 prevSlug: "prerequisites"
+order: 2
 ---
 
 > [!IMPORTANT]

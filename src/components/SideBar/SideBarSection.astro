@@ -1,0 +1,35 @@
+---
+type Props = {
+  title: string;
+  items: {
+    title: string;
+    slug: string;
+    order: number;
+  }[];
+};
+
+const { title, items } = Astro.props;
+---
+
+<li>
+  <div class="font-medium text-lg">{title}</div>
+  <ul role="list" class="mt-1.5 space-y-1 list-none border-l border-l-gray-300">
+    {
+      items
+        .sort((a, b) => a.order - b.order)
+        .map((item) => {
+          return (
+            <li>
+              <a
+                id={`desktop-${item.slug}`}
+                href={`/docs/${item.slug}`}
+                class="flex leading-6 font px-1.5 py-1 ml-1.5 text-sm font-medium hover:bg-primary/10 rounded-lg"
+              >
+                {item.title}
+              </a>
+            </li>
+          );
+        })
+    }
+  </ul>
+</li>

@@ -7,6 +7,7 @@ const docsCollection = defineCollection({
     section: z.enum(["Getting Started", "Setup", "File Storage"]),
     nextSlug: z.string().nullable(),
     prevSlug: z.string().nullable(),
+    order: z.number(),
   }),
 });
 

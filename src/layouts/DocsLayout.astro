@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
-import DesktopSidebar from "../components/DesktopSidebar.astro";
-import MobileSidebar from "../components/MobileSidebar.astro";
+import DesktopSidebar from "../components/SideBar/DesktopSidebar.astro";
+import MobileNav from "../components/MobileNav.astro";
 
 import "../styles/docs.css";
 import "remark-gh-alerts/styles/github-colors-light.css";
@@ -15,6 +15,7 @@ type Props = {
     data: {
       title: string;
       section: string;
+      order: number;
       nextSlug: string | null;
       prevSlug: string | null;
     };
@@ -31,10 +32,11 @@ const sidebar = docs.reduce(
     acc[cur.data.section]!.push({
       title: cur.data.title,
       slug: cur.slug,
+      order: cur.data.order,
     });
     return acc;
   },
-  {} as Record<string, { title: string; slug: string }[]>
+  {} as Record<string, { title: string; slug: string; order: number }[]>
 );
 const { entry } = Astro.props;
 
@@ -97,10 +99,10 @@ const prevPage = entry.data.prevSlug
       </a>
     </div>
     <div>
-      <MobileSidebar sidebar={sidebar} />
+      <MobileNav sidebar={sidebar} />
       <DesktopSidebar sidebar={sidebar} />
       <main class="lg:py-24 py-6 lg:pl-72">
-        <div class="px-4 sm:px-6 lg:px-12 max-w-3xl">
+        <div class="px-4 sm:px-6 lg:px-1 max-w-3xl">
           <div
             class="border-b border-gray-300 text-3xl pb-1 md:text-4xl mb-6 font-semibold"
           >

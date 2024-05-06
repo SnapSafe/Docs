@@ -3,6 +3,7 @@ title: "Introduction"
 section: "Getting Started"
 nextSlug: "prerequisites"
 prevSlug: null
+order: 1
 ---
 
 # Welcome

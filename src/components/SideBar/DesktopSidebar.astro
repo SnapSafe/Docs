@@ -1,0 +1,41 @@
+---
+import SideBarSection from "./SideBarSection.astro";
+
+type Props = {
+  sidebar: Record<string, { title: string; slug: string; order: number }[]>;
+};
+
+const { sidebar } = Astro.props;
+---
+
+<script>
+  const currentLink = document.getElementById(
+    "desktop-" +
+      window.location.pathname.split("/docs/")[1]!.replaceAll("/", "")
+  );
+
+  if (currentLink) {
+    currentLink.classList.add("bg-primary/10", "text-primary");
+    currentLink.classList.remove("hover:bg-primary/10");
+  }
+</script>
+
+<div
+  class="hidden top-24 bottom-0 left-0 lg:fixed lg:z-50 lg:flex w-72 flex-col"
+>
+  <div class="flex grow flex-col gap-y-3 overflow-y-auto px-6">
+    <nav class="flex flex-1 flex-col">
+      <ul role="list" class="flex flex-1 flex-col gap-y-7 list-none">
+        <li>
+          <ul role="list" class="space-y-5 list-none">
+            <SideBarSection
+              title="Getting Started"
+              items={sidebar["Getting Started"]!}
+            />
+            <SideBarSection title="Setup" items={sidebar["Setup"]!} />
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

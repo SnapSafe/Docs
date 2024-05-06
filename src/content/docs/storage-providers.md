@@ -2,7 +2,8 @@
 title: "File Storage"
 section: "Setup"
 prevSlug: "repo-setup"
-nextSlug: null
+nextSlug: "authentication"
+order: 3
 ---
 
 # S3 Compatibility
