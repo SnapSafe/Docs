@@ -1,9 +1,9 @@
 ---
 title: "Authentication"
 section: "Setup"
-prevSlug: "storage-providers"
+prevSlug: "email"
 nextSlug: "database"
-order: 4
+order: 5
 ---
 
 TODO

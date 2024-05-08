@@ -1,7 +1,7 @@
 ---
 title: "Database"
 section: "Setup"
-order: 5
+order: 6
 nextSlug: "email"
 prevSlug: "authentication"
 ---
