@@ -14,6 +14,6 @@ For more about the inspiration behind the project, click [here](about).
 
 # Setting Up
 
-If you are looking for the quickest way to get up and running, check out the [quick start guide](quick-start), otherwise, we recommend going through the [full setup guide](prerequisites).
+If you are looking for the quickest way to get up and running, check out the [quick start guide](/docs/quick-start), otherwise, we recommend going through the [full setup guide](/docs/prerequisites).
 
 If you run into any hiccups along the way, [open an issue and let us know!](https://github.com/SnapSafe/Docs/issues)
