@@ -10,7 +10,7 @@ With all of your environment variables set, you can now start SnapSafe on your l
 
 Run the following command in your terminal: `npm run dev`.
 
-You should the URL print in the console, `http://localhost:5173/`. Navigate there and create an account and get sharing!
+You should see the site URL print in the console, typically `http://localhost:5173/`. Navigate there, create an account, and get sharing!
 
 > [!TIP]
 > Run into any hiccups during the setup process? [Open an issue and let us know!](https://github.com/SnapSafe/Docs/issues)

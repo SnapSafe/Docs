@@ -29,4 +29,4 @@ GOOGLE_REDIRECT_URI="/YOUR-VALUE" // Do not put the full URL. Put the page path 
 ```
 
 > [!NOTE]
-> For a very thorough tutorial on create a Google OAuth app, click [here](https://www.balbooa.com/help/gridbox-documentation/integrations/other/google-client-id)
+> For a very thorough tutorial on creating a Google OAuth app, click [here](https://www.balbooa.com/help/gridbox-documentation/integrations/other/google-client-id)
