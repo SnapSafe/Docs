@@ -1,6 +1,6 @@
 ---
 type Props = {
-  sidebar: Record<string, { title: string; slug: string }[]>;
+  sidebar: Record<string, { title: string; slug: string; order: number }[]>;
 };
 
 const { sidebar } = Astro.props;
@@ -57,21 +57,28 @@ const { sidebar } = Astro.props;
       id="select-menu"
       class="bg-transparent w-full max-w-52 inset-0 absolute appearance-none text-transparent cursor-pointer outline-none"
     >
-      {
-        Object.entries(sidebar).map((v) => {
-          return (
-            <optgroup label={v[0]}>
-              {v[1].map((item) => {
-                return (
-                  <option value={item.slug} id={item.slug}>
-                    {item.title}
-                  </option>
-                );
-              })}
-            </optgroup>
-          );
-        })
-      }
+      <optgroup label="Getting Started">
+        {
+          sidebar["Getting Started"]
+            ?.sort((a, b) => a.order - b.order)
+            ?.map((item) => (
+              <option value={item.slug} id={item.slug}>
+                {item.title}
+              </option>
+            ))
+        }
+      </optgroup>
+      <optgroup label="Setup">
+        {
+          sidebar["Setup"]
+            ?.sort((a, b) => a.order - b.order)
+            ?.map((item) => (
+              <option value={item.slug} id={item.slug}>
+                {item.title}
+              </option>
+            ))
+        }
+      </optgroup>
     </select>
   </div>
 </div>

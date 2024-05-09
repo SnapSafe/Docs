@@ -6,7 +6,7 @@ prevSlug: "storage-providers"
 nextSlug: "authentication"
 ---
 
-SnapSafe uses email for user authentication and album sharing. Email is sent via SMTP by [Nodemailer](https://www.nodemailer.com/). You will need a service to use as an SMTP transport provider and the following set in your `.env` file.
+SnapSafe uses email for user authentication and album sharing. Emails are sent via SMTP using [Nodemailer](https://www.nodemailer.com/). You will need a service to use as an SMTP transport provider and the following set in your `.env` file.
 
 ```
 SMTP_HOST="YOUR-VALUE"

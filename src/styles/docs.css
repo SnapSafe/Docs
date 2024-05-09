@@ -34,6 +34,12 @@
     font-size: 1rem;
     margin-bottom: 1rem;
   }
+  ol {
+    @apply list-decimal;
+    margin: 0;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
   a {
     text-decoration: underline;
     font-weight: 600;
@@ -47,9 +53,8 @@
     background-color: lightgray !important;
     border-radius: 2px;
     padding: 0.25rem;
-  }
-  pre {
     position: relative;
+    margin-bottom: 1rem;
     code {
       padding: 0;
     }

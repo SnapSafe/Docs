@@ -26,5 +26,5 @@ SnapSafe uses [npm](https://www.npmjs.com/) for dependency management. Open a te
 Create a file named `.env` in the root project directory and past the following in it.
 
 ```
-SITE_URL = "http://localhost:5173";
+SITE_URL = "http://localhost:5173"
 ```

@@ -2,7 +2,7 @@
 title: "File Storage"
 section: "Setup"
 prevSlug: "repo-setup"
-nextSlug: "authentication"
+nextSlug: "email"
 order: 3
 ---
 

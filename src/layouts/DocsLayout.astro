@@ -145,12 +145,14 @@ const prevPage = entry.data.prevSlug
           <div class="content">
             <slot />
           </div>
-          <div class="grid w-full grid-cols-2 mt-12">
+          <div
+            class="grid w-full md:grid-cols-2 md:gap-0 gap-2 grid-cols-1 mt-12"
+          >
             {
               prevPage ? (
                 <a
                   href={`/docs/${prevPage.slug}`}
-                  class="p-6 border grow rounded-md border-gray-300 mr-1.5 group"
+                  class="p-6 border grow rounded-md border-gray-300 md:mr-1.5 group"
                 >
                   <div class="flex text-sm text-gray-600 items-center gap-3 justify-start">
                     <svg
@@ -172,14 +174,14 @@ const prevPage = entry.data.prevSlug
                   </div>
                 </a>
               ) : (
-                <div class="grow" />
+                <div />
               )
             }
             {
               nextPage ? (
                 <a
                   href={`/docs/${nextPage.slug}`}
-                  class="p-6 border grow rounded-md border-gray-300 ml-1.5  group"
+                  class="p-6 border grow rounded-md border-gray-300 md:ml-1.5  group"
                 >
                   <div class="flex text-sm text-gray-600 items-center gap-3 justify-end">
                     Next{" "}
@@ -201,7 +203,7 @@ const prevPage = entry.data.prevSlug
                   </div>
                 </a>
               ) : (
-                <div class="grow" />
+                <div />
               )
             }
           </div>
