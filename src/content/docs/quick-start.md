@@ -12,7 +12,7 @@ Then run `npm install`.
 
 ### 2. Create a `.env` file
 
-### 3. Create a [Cloudflare R2](https://developers.cloudflare.com/r2/) bucket.
+### 3. Create a [Cloudflare R2](https://developers.cloudflare.com/r2/) bucket
 
 Then and add the following environment variables
 
@@ -22,7 +22,7 @@ STORAGE_SECRET_KEY="..."
 STORAGE_ENDPOINT="..."
 ```
 
-### 4. Create a [SendGrid](https://sendgrid.com/en-us) account.
+### 4. Create a [SendGrid](https://sendgrid.com/en-us) account
 
 Follow along with [this tutorial](https://www.twilio.com/en-us/blog/send-smtp-emails-node-js-sendgrid) until you get your API key, then add the following variables
 
