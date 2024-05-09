@@ -10,7 +10,7 @@ order: 1
 
 SnapSafe is a self hosted photo sharing application designed from the ground up for privacy and security.
 
-For more about the inspiration behind the project, click [here](about).
+For more about the inspiration behind the project, click [here](/docs/about).
 
 # Setting Up
 
